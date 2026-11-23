@@ -1,46 +1,54 @@
-# Explain Your Work
+<h1 align="center">Explain Your Work</h1>
+<p align="center">Turn an agent-assisted experiment into a one-page brief you can explain in your own words.</p>
+<p align="center"><strong>English</strong> · <a href="README.zh-CN.md" lang="zh-CN">简体中文</a></p>
 
-你有没有遇到过这种情况？你和 Agent 跑完实验，把结果发给同事。到了组会，刚讲完结论，就有人问：“这次训练到底用了多少条数据？”你记得导出过一批样本，却拿不准训练实际读了多少。另一位同事指着表格问：“这里的成功率怎么算？工具都调用成功了，任务就算完成了吗？”你只好一边说“等我找一下”，一边往上翻和 AI 的聊天记录。
+Ever been in a lab meeting where someone asks, “How many examples did we actually train on?” You remember how many rows you exported. Did the trainer read them all? While you’re scrolling through the chat, someone points at the results table and asks what “success” means.
 
-我做 Explain Your Work，就是想把翻记录的时间挪到会前。交付时，让 Agent 对着这次实验的日志、评测代码和具体案例，把同事最可能问的问题整理成一页底稿。开会前合上底稿，让它扮演同事，一次问一题。哪一句讲不清，就回到对应的证据看一眼，再用自己的话讲一遍。
+I built **Explain Your Work** so I could do that digging before the meeting. At handoff, the agent reads the run’s logs, scoring code, and examples, then writes a brief around the questions a colleague is likely to ask. Before the meeting, close the brief and let the agent ask those questions one at a time.
 
-**Explain Your Work** helps you prepare for a meeting or handoff. Turn the evidence from a run into a one-page brief, then practice answering a colleague’s follow-up questions in your own words.
+## A question from the brief
 
-## Install for your agent
+> **“Both tool calls succeeded. Why did this task fail?”**
+>
+> The task was to submit a report for review. The agent drafted the report and never submitted it. The evaluator checks whether the report was submitted, so this task counts as a failure.
 
-This repository ships one [Agent Skills](https://agentskills.io/specification) bundle. The same instructions, template, and synthetic example work without host-specific hooks, scripts, or permissions.
+That answer comes from one row, `toy-02`, in the bundled synthetic run. The scoring rule and the observed outcome are both there to check. [Inspect the example](skills/explain-your-work/references/synthetic-run.md) · [See the one-page template](skills/explain-your-work/assets/HANDOFF.md)
 
-From the project where you want to use it:
+## Quick start
+
+Run this in your project and choose your agent in the installer.
 
 ```bash
 npx skills add caseclose/explain-your-work --skill explain-your-work
 ```
 
-Choose your agent in the installer, or pass one or more targets explicitly, for example:
+| When | Ask your agent |
+| --- | --- |
+| **Before a run** | “Use Explain Your Work to plan which counts and logs to save for the lab meeting. Leave the run for later.” |
+| **At handoff** | “Make a one-page brief for this run. Show what each number counts, where it came from, and what we still need to verify.” |
+| **Before the meeting** | “Quiz me on this run. Ask one question, wait for my answer, and follow up on anything I leave unclear.” |
+
+Want to try it first? Use the [practice scenarios](examples/README.md) with the synthetic run. You can also paste the [standalone prompt](PROMPT.md) into a chat and attach the excerpts you want it to use. The agent can work from the material you share.
+
+<details>
+<summary><strong>Other ways to install</strong></summary>
+
+To target specific agents, pass their names to the installer. For example, to install for Codex and Claude Code together, run the following command.
 
 ```bash
-npx skills add caseclose/explain-your-work --skill explain-your-work \
-  --agent claude-code codex cursor gemini-cli kimi-code-cli opencode github-copilot openclaw cline
+npx skills add caseclose/explain-your-work --skill explain-your-work --agent codex claude-code
 ```
 
-For **Hermes Agent**, you can also use its native installer:
+For Hermes Agent, use its native installer.
 
 ```bash
 hermes skills install caseclose/explain-your-work/skills/explain-your-work
 ```
 
-For another Agent Skills client, copy the whole [`skills/explain-your-work`](skills/explain-your-work) folder into a skills directory that client scans. **No skills support?** Paste [PROMPT.md](PROMPT.md) into any chat agent and attach only the relevant, shareable evidence. Without file access, it drafts in chat and cannot verify files you did not provide.
+For other [Agent Skills](https://agentskills.io/specification) clients, copy the entire [skill folder](skills/explain-your-work) into a skills directory your client scans.
 
-## Use it
+</details>
 
-Ask in plain language (the exact command syntax depends on the host):
+---
 
-| When | Example request |
-| --- | --- |
-| Before an important run | “Use Explain Your Work to plan what evidence to save. Don't start the run.” / “这次要上组会，先帮我列留痕清单。” |
-| At delivery or for an earlier run | “Use Explain Your Work to make a one-page handoff from the actual run.” / “给这次实验出一页组会底稿，没证据的标待核实。” |
-| Before the meeting | “Use Explain Your Work to quiz me. One question at a time.” / “来一轮闭卷追问，每次只问一题。” |
-
-The [handoff template](skills/explain-your-work/assets/HANDOFF.md) links every load-bearing claim to evidence. Exported rows are not verified training consumption, and a failed case does not prove its cause. You still inspect the case and answer the questions yourself. Try the [synthetic smoke tests](examples/README.md) without sharing real work data.
-
-Previously called `evidence-handoff`. Install the new name; you can remove the old copy after verifying the new one. [MIT license](LICENSE).
+[MIT license](LICENSE) · Previously published as `evidence-handoff`. If you have the old copy, verify the new installation before removing it.
