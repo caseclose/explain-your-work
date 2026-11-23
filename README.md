@@ -1,8 +1,10 @@
 # Explain Your Work
 
-**The agent did the work. Can you explain what happened, what the evidence supports, and where it stops?**
+你有没有遇到过这种情况？你和 Agent 跑完实验，把结果发给同事。到了组会，刚讲完结论，就有人问：“这次训练到底用了多少条数据？”你记得导出过一批样本，却拿不准训练实际读了多少。另一位同事指着表格问：“这里的成功率怎么算？工具都调用成功了，任务就算完成了吗？”你只好一边说“等我找一下”，一边往上翻和 AI 的聊天记录。
 
-Agent 帮你做完，结果你能用自己的话讲清楚，也能当场找到证据。这个 Skill 把实验留痕、一页组会底稿和闭卷追问放进同一个流程，适用于组会、技术评审和交接。
+我做 Explain Your Work，就是想把翻记录的时间挪到会前。交付时，让 Agent 对着这次实验的日志、评测代码和具体案例，把同事最可能问的问题整理成一页底稿。开会前合上底稿，让它扮演同事，一次问一题。哪一句讲不清，就回到对应的证据看一眼，再用自己的话讲一遍。
+
+**Explain Your Work** helps you prepare for a meeting or handoff. Turn the evidence from a run into a one-page brief, then practice answering a colleague’s follow-up questions in your own words.
 
 ## Install for your agent
 
