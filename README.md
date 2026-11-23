@@ -1,27 +1,44 @@
-# Evidence Handoff
+# Explain Your Work
 
-A Hermes Agent skill for presenting and handing off agent-assisted work. Replace live chat-history digging with a short, evidence-linked `HANDOFF.md` and a three-question rehearsal.
+**The agent did the work. Can you explain what happened, what the evidence supports, and where it stops?**
 
-## Install
+Agent 帮你做完，结果你能用自己的话讲清楚，也能当场找到证据。这个 Skill 把实验留痕、一页组会底稿和闭卷追问放进同一个流程，适用于组会、技术评审和交接。
 
-Install the complete bundle (including its template and synthetic example) from GitHub:
+## Install for your agent
+
+This repository ships one [Agent Skills](https://agentskills.io/specification) bundle. The same instructions, template, and synthetic example work without host-specific hooks, scripts, or permissions.
+
+From the project where you want to use it:
 
 ```bash
-hermes skills install caseclose/evidence-handoff/skills/evidence-handoff
+npx skills add caseclose/explain-your-work --skill explain-your-work
 ```
 
-Then run `/evidence-handoff` in Hermes, followed by what you want to do. You can also copy the whole [`skills/evidence-handoff`](skills/evidence-handoff) directory into the active profile's skills directory. No project dependency, background job, or extra service is required by the skill itself.
+Choose your agent in the installer, or pass one or more targets explicitly, for example:
+
+```bash
+npx skills add caseclose/explain-your-work --skill explain-your-work \
+  --agent claude-code codex cursor gemini-cli kimi-code-cli opencode github-copilot openclaw cline
+```
+
+For **Hermes Agent**, you can also use its native installer:
+
+```bash
+hermes skills install caseclose/explain-your-work/skills/explain-your-work
+```
+
+For another Agent Skills client, copy the whole [`skills/explain-your-work`](skills/explain-your-work) folder into a skills directory that client scans. **No skills support?** Paste [PROMPT.md](PROMPT.md) into any chat agent and attach only the relevant, shareable evidence. Without file access, it drafts in chat and cannot verify files you did not provide.
 
 ## Use it
 
+Ask in plain language (the exact command syntax depends on the host):
+
 | When | Example request |
 | --- | --- |
-| Before an important run | “Plan evidence capture for this run. Don't start it yet.” / “这次实验要上组会，先帮我列留痕清单。” |
-| At delivery, or after an older run | “Generate a one-page HANDOFF.md for this run. Check the real results and label gaps.” / “给这次 run 出一页组会底稿，缺证据的标待核实。” |
-| Before the meeting | “Rehearse with me. One question at a time.” / “来一轮组会追问，每次只问一题，等我回答。” |
+| Before an important run | “Use Explain Your Work to plan what evidence to save. Don't start the run.” / “这次要上组会，先帮我列留痕清单。” |
+| At delivery or for an earlier run | “Use Explain Your Work to make a one-page handoff from the actual run.” / “给这次实验出一页组会底稿，没证据的标待核实。” |
+| Before the meeting | “Use Explain Your Work to quiz me. One question at a time.” / “来一轮闭卷追问，每次只问一题。” |
 
-The file is a working index: conclusion, data quantities and units, the main metric or acceptance check, one concrete case, one important limit, and locations of the original evidence. It does not turn exported rows into actual training consumption or an observation into a root cause. You still inspect the case and answer the rehearsal yourself.
+The [handoff template](skills/explain-your-work/assets/HANDOFF.md) links every load-bearing claim to evidence. Exported rows are not verified training consumption, and a failed case does not prove its cause. You still inspect the case and answer the questions yourself. Try the [synthetic smoke tests](examples/README.md) without sharing real work data.
 
-See the [handoff template](skills/evidence-handoff/templates/HANDOFF.md) and the [synthetic smoke tests](examples/README.md). The repository contains no real experiment evidence. Keep real handoffs and artifacts inside their authorized workspace.
-
-[MIT license](LICENSE).
+Previously called `evidence-handoff`. Install the new name; you can remove the old copy after verifying the new one. [MIT license](LICENSE).
