@@ -22,11 +22,13 @@ Run this in your project and choose your agent in the installer.
 npx skills add caseclose/explain-your-work --skill explain-your-work
 ```
 
+After installation, type **EYW** (or **eyw**) in chat, followed by what you need.
+
 | When | Ask your agent |
 | --- | --- |
-| **Before a run** | “Use Explain Your Work to plan which counts and logs to save for the lab meeting. Leave the run for later.” |
-| **At handoff** | “Make a one-page brief for this run. Show what each number counts, where it came from, and what we still need to verify.” |
-| **Before the meeting** | “Quiz me on this run. Ask one question, wait for my answer, and follow up on anything I leave unclear.” |
+| **Before a run** | “EYW, plan which counts and logs to save for the lab meeting. Leave the run for later.” |
+| **At handoff** | “eyw, make a one-page brief for this run. Show what each number counts, where it came from, and what we still need to verify.” |
+| **Before the meeting** | “eyw, quiz me on this run. Ask one question, wait for my answer, and follow up on anything I leave unclear.” |
 
 Want to try it first? Use the [practice scenarios](examples/README.md) with the synthetic run. You can also paste the [standalone prompt](PROMPT.md) into a chat and attach the excerpts you want it to use. The agent can work from the material you share.
 

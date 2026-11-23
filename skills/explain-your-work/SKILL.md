@@ -1,15 +1,15 @@
 ---
 name: explain-your-work
-description: Prepare to present or hand off AI-assisted work. Use when planning what evidence to save, drafting a one-page meeting brief from a deliverable, or practicing follow-up questions before a review.
+description: Prepare to present or hand off AI-assisted work. Use when the user invokes EYW or eyw in chat, or when planning what evidence to save, drafting a one-page meeting brief from a deliverable, or practicing follow-up questions before a review.
 license: MIT
 metadata:
   author: caseclose
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 # Explain Your Work
 
-Respond in the user's language. Use chat history to locate original evidence. Choose the mode that fits the request.
+Respond in the user's language. Use chat history to locate original evidence. Choose the mode that fits the request or current context. If the user sends just “eyw” and the mode is unclear, ask whether they want to plan evidence capture, draft a brief, or rehearse.
 
 - **Capture** (“这次实验怎样留痕”) — plan what to record before an important run. Start or rerun a job only if the task calls for it.
 - **Handoff** (“出一页组会底稿”) — inspect the deliverable and build a brief the presenter can consult during questions. For past work, recover the evidence still available.

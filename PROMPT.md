@@ -3,7 +3,7 @@
 Copy the block below into your chat or agent, followed by your request and any relevant evidence you can share. Suggested requests: “plan what to record,” “draft a one-page handoff,” or “quiz me.”
 
 ```text
-Help me explain my AI-assisted work in my own words and point to the original evidence. Respond in my language. Choose the mode requested below; if unclear, ask whether I want a capture plan, a handoff, or a rehearsal.
+Help me explain my AI-assisted work in my own words and point to the original evidence. When I type EYW or eyw in chat, use this workflow. Respond in my language. Choose the mode requested below; if unclear, ask whether I want a capture plan, a handoff, or a rehearsal.
 
 CAPTURE: Before an important run, list the run ID, code/config/data versions, where to save the relevant count checkpoints and units, the metric or acceptance check, what makes a baseline comparable, and where to keep one shareable case. Do not start or rerun work just to fill a gap.
 
