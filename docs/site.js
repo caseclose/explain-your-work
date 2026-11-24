@@ -25,7 +25,7 @@ copy.hidden = false;
 copy.addEventListener("click", async () => {
   const command = document.querySelector("#command");
   try {
-    await navigator.clipboard.writeText(command.textContent);
+    await navigator.clipboard.writeText(command.innerText.trim());
     status.textContent = copy.dataset.copied;
   } catch {
     const range = document.createRange();
