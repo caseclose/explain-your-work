@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafaf6" />
+    <meta
+      name="description"
+      content="Turn agent-assisted work into a one-page meeting brief. Practice the follow-up questions with evidence from your run."
+    />
+    <title>Explain Your Work — Meeting prep for AI-assisted work</title>
+    <link rel="alternate" hreflang="en" href="./" />
+    <link rel="alternate" hreflang="zh-CN" href="./zh.html" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="site.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <a class="brand" href="./"
+          ><span class="mark" aria-hidden="true"><i></i></span>Explain Your
+          Work</a
+        >
+        <nav aria-label="Main navigation">
+          <a class="nav-work" href="#workflow">Workflow</a
+          ><a class="nav-install" href="#install">Install</a
+          ><span class="langs"
+            ><a href="./" lang="en" aria-current="page">EN</a
+            ><a href="./zh.html" lang="zh-CN">中文</a></span
+          ><a class="repo" href="https://github.com/caseclose/explain-your-work"
+            >GitHub</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero wrap">
+        <div class="intro">
+          <div class="small category">
+            <span class="rule"></span>An open-source agent skill
+          </div>
+          <h1>Explain<br /><em>your work.</em></h1>
+          <p>
+            When a colleague asks what a number means, have the answer and the
+            evidence at hand. Build a one-page brief with your agent, then
+            practice the follow-ups.
+          </p>
+          <div class="actions">
+            <a class="primary" href="#install">Install the skill</a
+            ><a
+              class="textlink"
+              href="https://github.com/caseclose/explain-your-work/blob/main/README.md"
+              >Read the guide</a
+            >
+          </div>
+        </div>
+        <div class="board">
+          <div class="board-head">
+            <span class="small">Rehearsal deck</span
+            ><span class="run">toy-r2</span>
+          </div>
+          <div class="stack" aria-live="polite">
+            <article class="card" aria-labelledby="question-1">
+              <div class="card-top">
+                <span class="tab">Training data</span
+                ><span class="count">01 / 03</span>
+              </div>
+              <h2 id="question-1" tabindex="-1">
+                How many examples did we actually train on?
+              </h2>
+              <details>
+                <summary>Reveal the answer</summary>
+                <p>
+                  Twelve unique requests produced 20 exported training examples.
+                  The run has no trainer consumption log, so we can confirm the
+                  export count and leave the number actually read open.
+                </p>
+                <a
+                  class="source"
+                  href="https://github.com/caseclose/explain-your-work/blob/main/skills/explain-your-work/references/synthetic-run.md#run-metadata"
+                  >Inspect the evidence</a
+                >
+              </details>
+            </article>
+            <article class="card" aria-labelledby="question-2">
+              <div class="card-top">
+                <span class="tab">Metric definition</span
+                ><span class="count">02 / 03</span>
+              </div>
+              <h2 id="question-2" tabindex="-1">
+                Both tool calls succeeded. Why did the task fail?
+              </h2>
+              <details>
+                <summary>Reveal the answer</summary>
+                <p>
+                  The task was to submit a report. In toy-02 the agent drafted
+                  it and stopped. The evaluator checks the final outcome, so the
+                  task failed. Three of the four tasks passed that check.
+                </p>
+                <a
+                  class="source"
+                  href="https://github.com/caseclose/explain-your-work/blob/main/skills/explain-your-work/references/synthetic-run.md#raw-evaluator-rows"
+                  >Inspect the evidence</a
+                >
+              </details>
+            </article>
+            <article class="card" aria-labelledby="question-3">
+              <div class="card-top">
+                <span class="tab">Baseline comparison</span
+                ><span class="count">03 / 03</span>
+              </div>
+              <h2 id="question-3" tabindex="-1">
+                Can we say this run improved on the last one?
+              </h2>
+              <details>
+                <summary>Reveal the answer</summary>
+                <p>
+                  This run passed 3 of 4 tasks. The previous one passed 2 of 3.
+                  Its task list and scoring revision are missing, so we can
+                  report both results and leave the comparison open.
+                </p>
+                <a
+                  class="source"
+                  href="https://github.com/caseclose/explain-your-work/blob/main/skills/explain-your-work/references/synthetic-run.md#baseline-note"
+                  >Inspect the evidence</a
+                >
+              </details>
+            </article>
+          </div>
+          <div class="board-foot">
+            <span>Synthetic run · 3 questions</span
+            ><button
+              id="next"
+              hidden
+              data-next="Next card"
+              data-again="Start again"
+            >
+              Next card
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="workflow" id="workflow">
+        <div class="wrap">
+          <h2>From the run to the meeting</h2>
+          <div class="modes">
+            <div class="mode">
+              <span class="small">Before the run</span>
+              <h3>Capture</h3>
+              <p>
+                Decide which counts, scoring rules, and case records to keep
+                while you can still observe them.
+              </p>
+              <code>eyw, what should I log for this run?</code>
+            </div>
+            <div class="mode">
+              <span class="small">With the results</span>
+              <h3>Handoff</h3>
+              <p>
+                Put the takeaway, a concrete case, and the source behind each
+                key number on one page.
+              </p>
+              <code>eyw, make a one-page brief for this run.</code>
+            </div>
+            <div class="mode">
+              <span class="small">Before the meeting</span>
+              <h3>Rehearse</h3>
+              <p>
+                Close the brief. Answer one question at a time and revisit the
+                evidence when a detail gets fuzzy.
+              </p>
+              <code>eyw, quiz me on this run.</code>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wrap install" id="install">
+        <div>
+          <h2>Install the skill</h2>
+          <p>
+            Run this in your project, choose your agent, then start a request
+            with <code>eyw</code>.
+          </p>
+        </div>
+        <div>
+          <div class="command">
+            <code id="command"
+              >npx skills add caseclose/explain-your-work --skill
+              explain-your-work</code
+            ><button
+              id="copy"
+              hidden
+              data-copied="Copied"
+              data-failed="Select and copy the command"
+            >
+              Copy
+            </button>
+          </div>
+          <p class="alternative">
+            <a
+              href="https://github.com/caseclose/explain-your-work/blob/main/PROMPT.md"
+              >Use the copy-and-paste prompt</a
+            >
+          </p>
+          <span id="status" role="status"></span>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Explain Your Work</span
+        ><a href="https://github.com/caseclose/explain-your-work">GitHub</a
+        ><a
+          href="https://github.com/caseclose/explain-your-work/blob/main/LICENSE"
+          >MIT</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>

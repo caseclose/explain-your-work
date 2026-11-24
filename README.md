@@ -1,6 +1,6 @@
 <h1 align="center">Explain Your Work</h1>
 <p align="center">Turn an agent-assisted experiment into a one-page brief you can explain in your own words.</p>
-<p align="center"><strong>English</strong> · <a href="README.zh-CN.md" lang="zh-CN">简体中文</a></p>
+<p align="center"><strong>English</strong> · <a href="README.zh-CN.md" lang="zh-CN">简体中文</a> · <a href="https://caseclose.github.io/explain-your-work/">Try the rehearsal deck</a></p>
 
 Ever been in a lab meeting where someone asks, “How many examples did we actually train on?” You remember how many rows you exported. Did the trainer read them all? While you’re scrolling through the chat, someone points at the results table and asks what “success” means.
 

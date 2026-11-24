@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafaf6" />
+    <meta
+      name="description"
+      content="把和 Agent 一起完成的工作整理成一页组会底稿，拿着实验记录，练习同事最可能问的问题。"
+    />
+    <title>Explain Your Work · 一页组会底稿</title>
+    <link rel="alternate" hreflang="en" href="./" />
+    <link rel="alternate" hreflang="zh-CN" href="./zh.html" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="site.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <a class="brand" href="./zh.html"
+          ><span class="mark" aria-hidden="true"><i></i></span>Explain Your
+          Work</a
+        >
+        <nav aria-label="主导航">
+          <a class="nav-work" href="#workflow">用法</a
+          ><a class="nav-install" href="#install">安装</a
+          ><span class="langs"
+            ><a href="./" lang="en">EN</a
+            ><a href="./zh.html" lang="zh-CN" aria-current="page">中文</a></span
+          ><a class="repo" href="https://github.com/caseclose/explain-your-work"
+            >GitHub</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero wrap">
+        <div class="intro">
+          <div class="small category">
+            <span class="rule"></span>开源 Agent 技能
+          </div>
+          <h1>把工作<br /><em>讲清楚。</em></h1>
+          <p>
+            同事问起一个数字时，能用自己的话解释，也能当场找到出处。让 Agent
+            整理一页组会底稿，再陪你练一轮追问。
+          </p>
+          <div class="actions">
+            <a class="primary" href="#install">安装技能</a
+            ><a
+              class="textlink"
+              href="https://github.com/caseclose/explain-your-work/blob/main/README.zh-CN.md"
+              >阅读使用指南</a
+            >
+          </div>
+        </div>
+        <div class="board">
+          <div class="board-head">
+            <span class="small">组会追问卡</span><span class="run">toy-r2</span>
+          </div>
+          <div class="stack" aria-live="polite">
+            <article class="card" aria-labelledby="question-1">
+              <div class="card-top">
+                <span class="tab">训练数据</span
+                ><span class="count">01 / 03</span>
+              </div>
+              <h2 id="question-1" tabindex="-1">
+                这次训练到底用了多少条数据？
+              </h2>
+              <details>
+                <summary>查看参考回答</summary>
+                <p>
+                  12 个去重请求导出了 20
+                  条训练样本。这次运行没有保留训练读取记录，所以能确认导出量，实际读了多少条还有待核实。
+                </p>
+                <a
+                  class="source"
+                  href="https://github.com/caseclose/explain-your-work/blob/main/skills/explain-your-work/references/synthetic-run.md#run-metadata"
+                  >查看原始记录</a
+                >
+              </details>
+            </article>
+            <article class="card" aria-labelledby="question-2">
+              <div class="card-top">
+                <span class="tab">指标口径</span
+                ><span class="count">02 / 03</span>
+              </div>
+              <h2 id="question-2" tabindex="-1">
+                两次工具调用都成功了，为什么任务还算失败？
+              </h2>
+              <details>
+                <summary>查看参考回答</summary>
+                <p>
+                  任务要求提交报告。toy-02
+                  只生成了草稿。评测看最终结果，因此这条算失败。四个任务里有三个通过了最终验证。
+                </p>
+                <a
+                  class="source"
+                  href="https://github.com/caseclose/explain-your-work/blob/main/skills/explain-your-work/references/synthetic-run.md#raw-evaluator-rows"
+                  >查看原始记录</a
+                >
+              </details>
+            </article>
+            <article class="card" aria-labelledby="question-3">
+              <div class="card-top">
+                <span class="tab">基线对比</span
+                ><span class="count">03 / 03</span>
+              </div>
+              <h2 id="question-3" tabindex="-1">
+                这次结果能说明比上一版有提升吗？
+              </h2>
+              <details>
+                <summary>查看参考回答</summary>
+                <p>
+                  这次通过了 4 个任务中的 3 个，上次通过了 3 个中的 2
+                  个。上次的任务清单和评分版本没有保留，两次结果是否可比还待核实。
+                </p>
+                <a
+                  class="source"
+                  href="https://github.com/caseclose/explain-your-work/blob/main/skills/explain-your-work/references/synthetic-run.md#baseline-note"
+                  >查看原始记录</a
+                >
+              </details>
+            </article>
+          </div>
+          <div class="board-foot">
+            <span>合成实验 · 3 道追问</span
+            ><button id="next" hidden data-next="下一张" data-again="从头练习">
+              下一张
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="workflow" id="workflow">
+        <div class="wrap">
+          <h2>从实验到组会</h2>
+          <div class="modes">
+            <div class="mode">
+              <span class="small">实验开始前</span>
+              <h3>留痕</h3>
+              <p>趁实验还没开始，确定哪些计数、评分规则和案例记录需要保存。</p>
+              <code>eyw，这次实验要留哪些日志？</code>
+            </div>
+            <div class="mode">
+              <span class="small">结果交付时</span>
+              <h3>交付</h3>
+              <p>把结论、一个具体案例和关键数字的出处放在一页纸上。</p>
+              <code>eyw，给这次实验出一页组会底稿。</code>
+            </div>
+            <div class="mode">
+              <span class="small">开组会之前</span>
+              <h3>演练</h3>
+              <p>
+                合上底稿，一次回答一个问题。哪处讲不清楚，就回到对应的记录看一眼。
+              </p>
+              <code>eyw，扮演同事来追问我。</code>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wrap install" id="install">
+        <div>
+          <h2>安装技能</h2>
+          <p>
+            在项目目录里运行命令，选择你的 Agent，然后在聊天里输入
+            <code>eyw</code>。
+          </p>
+        </div>
+        <div>
+          <div class="command">
+            <code id="command"
+              >npx skills add caseclose/explain-your-work --skill
+              explain-your-work</code
+            ><button
+              id="copy"
+              hidden
+              data-copied="已复制"
+              data-failed="请选中并复制命令"
+            >
+              复制
+            </button>
+          </div>
+          <p class="alternative">
+            <a
+              href="https://github.com/caseclose/explain-your-work/blob/main/PROMPT.md"
+              >使用可直接粘贴的提示词</a
+            >
+          </p>
+          <span id="status" role="status"></span>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>Explain Your Work</span
+        ><a href="https://github.com/caseclose/explain-your-work">GitHub</a
+        ><a
+          href="https://github.com/caseclose/explain-your-work/blob/main/LICENSE"
+          >MIT</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>

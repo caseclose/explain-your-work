@@ -1,6 +1,6 @@
 <h1 align="center">Explain Your Work</h1>
 <p align="center">把和 Agent 一起做的实验整理成一页组会底稿，用自己的话讲清楚。</p>
-<p align="center"><a href="README.md" lang="en">English</a> · <strong>简体中文</strong></p>
+<p align="center"><a href="README.md" lang="en">English</a> · <strong>简体中文</strong> · <a href="https://caseclose.github.io/explain-your-work/zh.html">在线体验组会追问</a></p>
 
 你有没有遇到过这种情况？你和 Agent 跑完实验，把结果发给同事。到了组会，刚讲完结论，就有人问：“这次训练到底用了多少条数据？”你记得导出过一批样本，却拿不准训练实际读了多少。你还在往上翻聊天记录，另一位同事已经指着表格问：“这里的成功率是怎么算的？”
 
